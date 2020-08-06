@@ -78,6 +78,29 @@
       1.字符串处理函数chr(x)中x为Unicode编码，返回其对应的字符；ord(x)中x为字符，返回其对应的Unicode编码
       2.字符串类型的格式化使用.format()方法，<模板字符串>.format(<逗号分隔的参数>)
       
- （5）
+ （5）time库
+      1.包括三类函数
+        时间获取：time()  ctime()   gmtime()
+        时间格式化：strftime()   strptime()
+        程序计时：sleep()  perf_counter()
+      2.“文本进度条”的例子
+         #time.py
+         import time
+         scale=50
+         print("执行开始".center(scale//2,"-"))
+         start=time.perf_counter()
+         for i in range(scale+1):
+            a='*'*i
+            b='.'*(scale-i)
+            c=(i/scale)*100
+            dur=time.perf_counter()-start
+            print("\r{:^3.0f}%[{}->{}]{:.2f}s".format(c,a,b,dur),end=" ")
+            time.sleep(0.1)
+         print("\n"+"执行结束".center(scale//2,'-'))
+         
+
+
+
+        
                   
             
