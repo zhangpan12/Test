@@ -1,5 +1,6 @@
 # Test
 第一阶段：python学习
+
 （1）“温度转换”实例
       
       #TempConvert.py
@@ -72,15 +73,18 @@
             range(M,N)产生M到N-1的整数序列，共N-M个
           
  （3）数字类型及操作
+ 
       1.要注意浮点数间运算存在不确定尾数，浮点数间运算与比较用round()函数辅助，round(x,d)：对x四舍五入，d是小数截取位数
       2.Python中多了一个复数类型，与数学中复数概念一致
       3.x/y是x与y之商，而x//y是整数除；x**y表示幂运算，x的y次幂
       
  （4）字符串类型及操作
+ 
       1.字符串处理函数chr(x)中x为Unicode编码，返回其对应的字符；ord(x)中x为字符，返回其对应的Unicode编码
       2.字符串类型的格式化使用.format()方法，<模板字符串>.format(<逗号分隔的参数>)
       
  （5）time库
+ 
       1.包括三类函数
         时间获取：time()  ctime()   gmtime()
         时间格式化：strftime()   strptime()
@@ -102,6 +106,7 @@
          print("\n"+"执行结束".center(scale//2,'-'))
     
   （6）程序的控制结构
+  
    1.程序的异常处理的基本使用            
         
         try:                        
@@ -144,6 +149,7 @@
             who,nat="肥胖","肥胖"
          print("BMI指标为：国际'{0}',国内'{1}'".format(who,nat))
    4.循环的高级用法
+   
      循环与else:当循环没有被break语句退出时，执行else语句块
      eg:
      
@@ -153,7 +159,7 @@
       print(c,end="")
       else:
           print("正常退出")
-   输出结果为：PTHON正常退出
+      输出结果为：PTHON正常退出
    
       for c in "PYTHON":
             if c=="T":
@@ -161,9 +167,57 @@
             print(c,end="")
             else:
                   print("正常退出")
-   输出结果为：PY
+      输出结果为：PY
+   
    5.rondom库的使用
    
+    A. 基本随机函数：seed(), random()
+       seed(a=None)初始化给定的随机数种子，默认为当前系统时间
+       random()生成一个[0.0,1.0)之间的随机小数
+    B. 扩展随机数函数
+       randint(a,b)生成一个[a,b]之间的整数
+       randrange(m,n[,k])生成一个[m,n)之间以k为步长的随机整数
+       getrandbits(k)生成一个k比特长的随机整数
+       uniform(a,b)生成一个[a,b]之间的随机小数
+       choice(seq)从序列seq中随机选一个元素
+       shuffle(seq)将序列seq中元素随机排列，返回打乱后的序列
+   6.例子：圆周率的计算
+      
+      from random import random
+      from time import perf_counter
+      DARTS=1000*1000
+      hits=0.0
+      start=perf_counter()
+      for i in range(1,DARTS+1):
+          x,y=random(),random()
+          dist=pow(x**2+y**2,0.5)
+          if dist<=1.0:
+              hits=hits+1
+      pi=4*(hits/DARTS)
+      print("圆周率值是:{}".format(pi))
+      print("运行时间是:{:.5f}s".format(perf_counter()-start))
+      
+  （7）函数和代码复用
+  
+      1.lambda函数
+        lambda函数返回函数名作为结果，是一种匿名函数，用于定义简单的、能够在一行内表示的函数
+        <函数名> = lambda <参数>: <表达式>
+        等价于
+        def <函数名>(<参数>):
+            <函数体>
+            return <返回值>
+            
+        eg：
+        >>>f=lambda x,y : x+y
+        >>>f(10,15)
+        25
+        >>>f=lambda : "lambda函数"
+        >>>print(f())
+        lambda函数
+        
+            
+      
+      
      
      
 
