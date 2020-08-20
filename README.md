@@ -214,6 +214,44 @@
         >>>f=lambda : "lambda函数"
         >>>print(f())
         lambda函数
+      2.“汉诺塔”例子
+         count=0
+         def hanoi(n,src,dst,mid):
+            global count
+            if n==1:
+                  print("{}:{}->{}".format(1,src,dst))
+                  count+=1
+            else:
+                  hanoi(n-1,src,mid,dst)
+                  print("{}:{}->{}".format(n,src,dst))
+                  count+=1
+                  hanoi(n-1,mid,dst,src)
+          hanoi(3,"A","C","B")
+          print(count)
+          >>>
+          1:A->C
+          2:A->B
+          1:C->B
+          3:A->C
+          1:B->A
+          2:B->C
+          1:A->C
+          7
+       
+   （8）组合数据类型
+   
+      1.集合数据类型及操作
+        集合使用{}和set()函数创建
+        集合间操作：交(&)、并(|)、差(-)、补(|)、比较(>=<)
+        集合类型方法：.add()、.discard()、.pop()等
+        集合类型主要应用于：包含关系比较、数据去重
+      2.序列类型及操作
+        序列是基类类型，扩展类型包括：字符串、元组、列表
+        元组用()和tuple()创建，列表用[]和set()创建
+        元组一旦创建就不能被修改，列表创建后可以随意被修改
+      3.字典类型及操作
+        
+         
         
             
       
