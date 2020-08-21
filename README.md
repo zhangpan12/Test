@@ -250,6 +250,55 @@
         元组用()和tuple()创建，列表用[]和set()创建
         元组一旦创建就不能被修改，列表创建后可以随意被修改
       3.字典类型及操作
+        映射关系采用键值对表示
+        字典类型使用{}和dict()创建，键值对之间用:分隔
+        d[key]方式既可以索引，也可以赋值
+        字典类型有一批操作方法和函数，最重要的是.get()
+      4."文本词频统计"例子
+         def getText():
+             txt=open("hamlet.txt","r").read()
+             txt=txt.lower()
+             for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_‘{|}~':
+                 txt=txt.replace(ch," ")
+             return txt
+             
+         hamletTxt=getText()
+         words=hamletTxt.split()
+         counts={}
+         for word in words:
+             counts[word]=counts.get(word,0)+1
+         items=list(counts.items())
+         items.sort(key=lambda x:x[1],reverse=True)
+         for i in range(10):
+             word,count =items[i]
+             print("{0:<10}{1:>5}".format(word,count))
+         >>>
+         the        1138
+         and         965
+         to          754
+         of          669
+         you         550
+         i           542
+         a           542
+         my          514
+         hamlet      462
+         in          436
+         
+   （9）文件和数据格式化
+   
+       1.文件的使用
+         文件内容的读取: .read()  .readline()  .readlines()
+         数据的文件写入: .write()  .writelines()  .seek()
+       2.一维数据的格式化和处理
+         一维数据的表示：列表类型（有序）和集合类型（无序）
+         一维数据的存储：空格分隔、逗号分隔、特殊符号分隔
+         一维数据的处理：字符串方法 .split()和.join()
+       3.二维数据的格式化和处理
+         二维数据的表示：列表类型，其中每个元素也是一个列表
+         CSV格式：逗号分隔表示一维，按行分隔表示二维
+         二维数据的处理：for循环+.split()和.join()
+         
+         
         
          
         
